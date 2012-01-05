@@ -1,0 +1,17 @@
+<project>
+     <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes" />
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="build"/>
+        <jar destfile="build/3dmath.jar" basedir="build/classes">
+        </jar>
+    </target>
+</project>
+
