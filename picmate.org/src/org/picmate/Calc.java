@@ -2,6 +2,8 @@ package org.picmate;
 
 import java.lang.Math;
 
+import org.picmate.Circle;
+
 
 public final class Calc {
 
@@ -63,6 +65,7 @@ public static final Circle radiusFun(
 
     return new Circle(r, cp_x, cp_y);
 }
+
 
 }
 
