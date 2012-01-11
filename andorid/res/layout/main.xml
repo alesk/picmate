@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+ xmlns:android="http://schemas.android.com/apk/res/android" 
+ android:layout_width="fill_parent" 
+ android:layout_height="fill_parent" 
+ android:orientation="horizontal"
+ android:background="#FF909090" >
+ 
+   
+    <TextView 
+   android:id="@+id/textView1" 
+   android:layout_gravity="center_horizontal" 
+   android:text="Step on the leftmost point of the object and press start" 
+   android:layout_width="300px" 
+   android:layout_height="30px"   
+   android:layout_alignParentTop="true"
+   android:layout_alignParentLeft="true" >
+   </TextView>
+   
+     <Button 
+     android:layout_width="300px" 
+     android:text="Stop"
+     android:layout_height="wrap_content" 
+     android:layout_below="@+id/textView1"
+     android_layout_alignRight="@+id/textView1"
+     android:id="@+id/button1" 
+     android:layout_weight="1" 
+     >
+     </Button>
+     
+    <Button 
+    android:layout_width="100px" 
+    android:text="Start" 
+    android:layout_height="wrap_content" 
+    android:layout_below="@+id/textView1"
+    android_layout_alignLeft="@+id/textView1"
+    android:layout_weight="1" 
+    android:id="@+id/button2"
+    >
+    </Button>
+       
+   
+    
+  <FrameLayout android:id="@+id/preview"
+    android:orientation="vertical"
+    android:layout_below="@+id/button2"
+    android:layout_centerHorizontal="true"
+    android:layout_weight="1" 
+    android:layout_width="wrap_content"
+    android:layout_height="70px">
+  </FrameLayout>
+  
+   
+  
+  <Button 
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:id="@+id/button3"
+  android:text="Take Photo" 
+  android:layout_gravity="center"
+  android:layout_below="@+id/preview" >
+  </Button>
+   
+ 
+  
+    <TableRow 
+    android:id="@+id/tableRow1" 
+    android:layout_height="30px" 
+    android:layout_width="wrap_content"
+    android:layout_below="@+id/button3"
+   android:layout_centerHorizontal="true"
+   >
+     
+     <ImageView 
+     android:layout_height="40px" 
+     android:src="@drawable/icon" 
+     android:layout_width="20px" 
+     android:id="@+id/imageView1"
+     >
+     </ImageView>
+          
+          
+    <ImageView 
+    android:layout_height="40px" 
+    android:src="@drawable/icon" 
+    android:layout_width="20px" 
+    android:id="@+id/imageView2"
+    >
+    </ImageView>
+    
+    <ImageView 
+    android:layout_height="40px" 
+    android:src="@drawable/icon" 
+    android:layout_width="20px" 
+    android:id="@+id/imageView3"
+    >
+    </ImageView><ImageView 
+    android:layout_height="40px" 
+    android:src="@drawable/icon" 
+    android:layout_width="20px" 
+    android:id="@+id/imageView4"
+    >
+    </ImageView>
+    
+    <ImageView 
+    android:layout_height="40px" 
+    android:src="@drawable/icon" 
+    android:layout_width="20px" 
+    android:id="@+id/imageView5"
+    >
+    </ImageView>
+    
+    <ImageView 
+    android:layout_height="40px" 
+    android:src="@drawable/icon" 
+    android:layout_width="20px" 
+    android:id="@+id/imageView6"
+    >
+    </ImageView>
+    
+    <ImageView 
+    android:layout_height="40px" 
+    android:src="@drawable/icon" 
+    android:layout_width="20px" 
+    android:id="@+id/imageView7"
+    >
+    </ImageView>
+    
+    <ImageView 
+    android:layout_height="40px" 
+    android:src="@drawable/icon" 
+    android:layout_width="20px" 
+    android:id="@+id/imageView8"
+    >
+    </ImageView>
+       
+    
+    </TableRow>
+    <TextView 
+    android:layout_width="wrap_content" 
+    android:id="@+id/textView2" 
+    android:text="TextView" 
+    android:layout_height="40px" 
+    android:layout_below="@+id/tableRow1" 
+    android:layout_alignParentLeft="true" 
+    android:layout_marginTop="14dp"></TextView>
+    <TextView android:layout_width="wrap_content" 
+    android:id="@+id/textView3" 
+    android:text="TextView" 
+    android:layout_height="wrap_content" 
+    android:layout_below="@+id/textView2" 
+    android:layout_alignParentLeft="true">
+    </TextView>
+  
+     
+</RelativeLayout>
+        
+
