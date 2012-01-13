@@ -49,6 +49,9 @@ sfreq = 1/dt;
 a = [1.0000, -1.9536, 0.9546];
 b = [0.2634, 0.5268, 0.2634] *0.001;
 gravity = [ cebisev(a, b, acc(:, 1)),  cebisev(a, b, acc(:, 2)), cebisev(a, b, acc(:, 3))];
+gravity = [gravity(:,1) * median(acc(:,1))/median(gravity(:,1)), \ 
+         gravity(:,2) * median(acc(:,2))/median(gravity(:,2)),   \
+         gravity(:,3) * median(acc(:,3))/median(gravity(:,3))];
 
 linacc = acc - gravity;
 
@@ -59,10 +62,11 @@ distance = cumsum((velocity .* dt)  + (linacc .* (dt*dt/2)));
 figure(1)
 plotme(time, acc, gravity, "pospeskomer", "gravitcija");
 figure(2)
-%plotme(time, gravity, linacc, "gravitcija", "linpospesek");
-%plotme(time, acc, linacc, "pospeskomer", "linpospesek");
-%plotme(time, linacc, velocity, "linpospesek", "hitrost");
-plotme(time(400:N), velocity(400:N,:), distance(400:N,:), "hitrost", "razdalja");
+plotme(time, gravity, linacc, "gravitcija", "linpospesek");
+plotme(time, acc, linacc, "pospeskomer", "linpospesek");
+plotme(time, linacc, velocity, "linpospesek", "hitrost");
+%plotme(time(400:N), velocity(400:N,:), distance(400:N,:), "hitrost", "razdalja");
+plotme(time, velocity, distance, "hitrost", "razdalja");
 
 % spekter distance
 % http://www.mathworks.com/support/tech-notes/1700/1702.html
@@ -83,5 +87,9 @@ subplot(3,1,3)
 semilogy(distance_fft)
 title("Razdalja")
 print("spectral_components.png")
+
+figure(4)
+plot(time, [acc(:,3), gravity(:,3), linacc(:,3) ])
+
 
 

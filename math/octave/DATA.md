@@ -77,3 +77,17 @@ http://www.motusbioengineering.com/accelerometer-limitations.htm
   "The piezoelectric accelerometer is less expensive and can fit on one's hand but cannot measure either static accelerations or ones occurring at the low frequencies commonly found in human motion."
 
 Iz tega izhaja, da je accelerometer izrazito neprimeren za merjenje pozicije telefona na podlagi premikov, ki jih povzroča človeška roka in imajo nizke frekvence, tako kot gravitacija.
+
+Mogoče tale post prinaša malo upanja:
+
+http://stackoverflow.com/questions/2674717/how-to-detect-iphone-movement-in-space-using-accelerometer
+
+Sfiltrirano gravitacijo je treba namreč "normalizirati" glede na prvotni signal. Uporabil sem mediano vrednosti po vsaki osi in rezultati so bolj vzpodbudni.
+
+Ključna novost je:
+
+    gravity = [ cebisev(a, b, acc(:, 1)),  cebisev(a, b, acc(:, 2)), cebisev(a, b, acc(:, 3))];
+    gravity = [gravity(:,1) * median(acc(:,1))/median(gravity(:,1)), \ 
+         gravity(:,2) * median(acc(:,2))/median(gravity(:,2)),   \
+         gravity(:,3) * median(acc(:,3))/median(gravity(:,3))];
+
