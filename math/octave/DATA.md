@@ -69,4 +69,11 @@ Meritve
 `/still/`        meritev telefona v mirovanju, na začetku drsne površine
 `/line_115cm/    meritev približno enakomernega drsenja telefona po 115 m dolgi vodoravni površini
 
+Težave
+------
 
+http://www.motusbioengineering.com/accelerometer-limitations.htm
+
+  "The piezoelectric accelerometer is less expensive and can fit on one's hand but cannot measure either static accelerations or ones occurring at the low frequencies commonly found in human motion."
+
+Iz tega izhaja, da je accelerometer izrazito neprimeren za merjenje pozicije telefona na podlagi premikov, ki jih povzroča človeška roka in imajo nizke frekvence, tako kot gravitacija.

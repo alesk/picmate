@@ -32,3 +32,12 @@ endfunction
 function ret = mag(x,y,z)
 	ret = sqrt(x*x + y*y + z*z);
 endfunction
+
+% cebisev 2nd order filter
+function out=cebisev(a, b, in)
+    N = numel(in);
+    out = zeros(N,1);
+    for(n=3:N)
+        out(n) = b(1)*in(n) + b(2)*in(n-1) + b(3)*in(n-2) - a(2)*out(n-1) - a(3)*out(n-2);
+    end
+endfunction
