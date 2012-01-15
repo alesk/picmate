@@ -3,14 +3,26 @@ source ("utils.m");
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% load data from csv file
+% telefon je pri miru v vodoravni legi
 %start = load("-ascii", "measurements/still/start.txt");
-%start = load("-ascii", "measurements/line_115cm/start_cut_20.txt");
 
 %start_raw = load("-ascii", "../measurements/line_115cm/start.txt");
 %start = start_raw((400:length(start)),:)
 
-start = load("-ascii", "../measurements/line_115cm/start.txt");
+% linearen pomik po mizi 115 cm, telefon je v vodoravni legi
+%start = load("-ascii", "../measurements/line_115cm/start.txt");
+
+% krozenje okoli mize z r=25cm, telefon je v navpicni legi
+%start = load("-ascii", "../measurements/miza_r_25cm/start.txt");
+
+% vrtenje okoli osi z, telefon je v vodoravni legi
+%start = load("-ascii", "../measurements/vrtenje_z/start.txt");
+
+% linearen pomik po mizi 20 cm, telefon je v vodoravni legi
+%start = load("-ascii", "../measurements/miza_20cm/start.txt");
+
+% linearen pomik po mizi 115 cm in povratek, telefon je v vodoravni legi
+start = load("-ascii", "../measurements/miza_115_tja_in_nazaj/start.txt");
 
 
 % loči čas in koordinate
@@ -49,9 +61,9 @@ sfreq = 1/dt;
 a = [1.0000, -1.9536, 0.9546];
 b = [0.2634, 0.5268, 0.2634] *0.001;
 gravity = [ cebisev(a, b, acc(:, 1)),  cebisev(a, b, acc(:, 2)), cebisev(a, b, acc(:, 3))];
-%gravity = [gravity(:,1) * median(acc(:,1))/median(gravity(:,1)), \ 
-%         gravity(:,2) * median(acc(:,2))/median(gravity(:,2)),   \
-%         gravity(:,3) * median(acc(:,3))/median(gravity(:,3))];
+gravity = [gravity(:,1) * median(acc(:,1))/median(gravity(:,1)), \
+         gravity(:,2) * median(acc(:,2))/median(gravity(:,2)),   \
+         gravity(:,3) * median(acc(:,3))/median(gravity(:,3))];
 
 linacc = acc - gravity;
 
@@ -76,20 +88,20 @@ linacc_fft = abs(fft(linacc, nfft));
 velocity_fft = abs(fft(velocity, nfft));
 distance_fft = abs(fft(distance, nfft));
 
-figure(3)
-subplot(3,1,1)
-semilogy(linacc_fft)
-title("Pospesek")
-subplot(3,1,2)
-semilogy(velocity_fft)
-title("Hitrost")
-subplot(3,1,3)
-semilogy(distance_fft)
-title("Razdalja")
-print("spectral_components.png")
+figure(3);
+subplot(3,1,1);
+semilogy(linacc_fft);
+title("Pospesek");
+subplot(3,1,2);
+semilogy(velocity_fft);
+title("Hitrost");
+subplot(3,1,3);
+semilogy(distance_fft);
+title("Razdalja");
+print("spectral_components.png");
 
-figure(4)
-plot(time, [acc(:,3), gravity(:,3), linacc(:,3) ])
+figure(4);
+plot(time, [acc(:,3), gravity(:,3), linacc(:,3) ]);
 
 
 
