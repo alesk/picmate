@@ -49,9 +49,9 @@ sfreq = 1/dt;
 a = [1.0000, -1.9536, 0.9546];
 b = [0.2634, 0.5268, 0.2634] *0.001;
 gravity = [ cebisev(a, b, acc(:, 1)),  cebisev(a, b, acc(:, 2)), cebisev(a, b, acc(:, 3))];
-gravity = [gravity(:,1) * median(acc(:,1))/median(gravity(:,1)), \ 
-         gravity(:,2) * median(acc(:,2))/median(gravity(:,2)),   \
-         gravity(:,3) * median(acc(:,3))/median(gravity(:,3))];
+%gravity = [gravity(:,1) * median(acc(:,1))/median(gravity(:,1)), \ 
+%         gravity(:,2) * median(acc(:,2))/median(gravity(:,2)),   \
+%         gravity(:,3) * median(acc(:,3))/median(gravity(:,3))];
 
 linacc = acc - gravity;
 
